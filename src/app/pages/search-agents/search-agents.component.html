@@ -1,0 +1,16 @@
+<main class="container">
+  <div class="search-agents-container">
+    <h1 class="main-title">Valorant Agents</h1>
+    <input type="text" placeholder="search agents by name" />
+  </div>
+
+  <section class="agents-list-container">
+    <ul class="agents-list">
+      <ng-container *ngFor="let agent of agents()">
+        <app-agent-card [agent]="agent" />
+      </ng-container>
+    </ul>
+  </section>
+
+  <footer class="footer">&copy; Elian Arismendi</footer>
+</main>

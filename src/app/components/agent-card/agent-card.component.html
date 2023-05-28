@@ -1,0 +1,10 @@
+<li class="agent-card">
+  <div class="agent-card-img-container">
+    <img [src]="agent.fullPortrait" alt="" />
+  </div>
+  <div>
+    <strong>{{ agent.displayName }}</strong>
+    <hr />
+    <p>{{ agentDescriptionComputed() }}</p>
+  </div>
+</li>

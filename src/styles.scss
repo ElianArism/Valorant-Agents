@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Valorant";
+  src: url("./assets/fonts/valorantFont.ttf") format("embedded-opentype"),
+    url("./assets/fonts/valorantFont.ttf") format("woff2"),
+    url("./assets/fonts/valorantFont.ttf") format("woff"),
+    url("./assets/fonts/valorantFont.ttf") format("truetype"),
+    url("./assets/fonts/valorantFont.ttf") format("svg");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Marvel", sans-serif;
+}
+
+html,
+body {
+  height: auto;
+  width: 100%;
+  min-height: 100vh;
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(46, 46, 46);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(46, 46, 46);
+}
