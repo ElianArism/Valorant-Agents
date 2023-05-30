@@ -2,9 +2,19 @@
   <div class="agent-card-img-container">
     <img [src]="agent.fullPortrait" alt="" />
   </div>
-  <div>
-    <strong>{{ agent.displayName }}</strong>
-    <hr />
-    <p>{{ agentDescriptionComputed() }}</p>
+  <div class="agent-description-container">
+    <div>
+      <strong>{{ agent.displayName }}</strong>
+      <hr />
+      <p>{{ agentDescriptionComputed() }}</p>
+    </div>
+    <span
+      (mouseenter)="addDetailsBtnStyles('enter')"
+      (mouseleave)="addDetailsBtnStyles('leave')"
+      class="agent-details-btn"
+      [routerLink]="'/search-agents/' + agent.uuid"
+      #detailsBtn
+      >Details</span
+    >
   </div>
 </li>
