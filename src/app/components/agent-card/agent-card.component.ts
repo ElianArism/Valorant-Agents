@@ -1,4 +1,12 @@
-import { Component, Input, OnInit, computed } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  computed,
+} from '@angular/core';
 import { Agent } from 'src/app/interfaces/Agent';
 
 @Component({
@@ -7,11 +15,27 @@ import { Agent } from 'src/app/interfaces/Agent';
   styleUrls: ['./agent-card.component.scss'],
 })
 export class AgentCardComponent implements OnInit {
+  @ViewChild('detailsBtn')
+  detailsBtn!: ElementRef<HTMLSpanElement>;
+
   @Input({ required: true })
   agent!: Agent;
 
   agentDescriptionComputed = computed(
     () => this.agent.description.substring(0, 100) + '...'
   );
-  ngOnInit(): void {}
+
+  constructor(private readonly r2: Renderer2) {}
+
+  ngOnInit(): void {
+    console.log(this.agent);
+  }
+
+  addDetailsBtnStyles(eventName: 'enter' | 'leave'): void {
+    const color =
+      eventName === 'enter'
+        ? '#' + this.agent.backgroundGradientColors[0]
+        : 'inherit';
+    this.r2.setStyle(this.detailsBtn.nativeElement, 'color', color);
+  }
 }

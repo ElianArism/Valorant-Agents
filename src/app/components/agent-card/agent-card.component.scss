@@ -15,3 +15,18 @@
     display: flex;
   }
 }
+
+.agent-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
+}
+
+.agent-details-btn {
+  font-family: "Valorant", sans-serif;
+  cursor: pointer;
+  user-select: none;
+  align-self: flex-end;
+  transition: color 300ms;
+}

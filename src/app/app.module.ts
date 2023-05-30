@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgentCardComponent } from './components/agent-card/agent-card.component';
 import { SearchAgentsComponent } from './pages/search-agents/search-agents.component';
+import { AgentDetailsComponent } from './pages/agent-details/agent-details.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchAgentsComponent, AgentCardComponent],
+  declarations: [AppComponent, SearchAgentsComponent, AgentCardComponent, AgentDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
