@@ -1,7 +1,11 @@
 <main class="container">
   <div class="search-agents-container">
     <h1 class="main-title">Valorant Agents</h1>
-    <input type="text" placeholder="search agents by name" />
+    <input
+      type="text"
+      placeholder="search agents by name"
+      (keyup)="filterAgents($event)"
+    />
   </div>
 
   <section class="agents-list-container">
