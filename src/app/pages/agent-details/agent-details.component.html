@@ -1,1 +1,14 @@
-<p>agent-details works!</p>
+<section class="container" #agentDetailsContainer>
+  <article class="agent-container">
+    <div class="agent-profile-img-container">
+      <img src="" alt="" />
+      <img src="" alt="" />
+    </div>
+
+    <div class="agent-profile-description">
+      <strong>{{ agent()?.displayName }}</strong>
+      <hr />
+      <p>{{ agent()?.description }}</p>
+    </div>
+  </article>
+</section>

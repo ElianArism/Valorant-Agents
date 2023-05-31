@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: #18344cff; /* fallback for old browsers */
+  -webkit-animation: animatedBG 60s ease infinite;
+  -moz-animation: animatedBG 60s ease infinite;
+  -o-animation: animatedBG 60s ease infinite;
+  animation: animatedBG 60s ease infinite;
+  color: #f3f3f3;
+  background-size: 500% 500% !important;
+}

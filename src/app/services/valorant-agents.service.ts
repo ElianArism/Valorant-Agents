@@ -7,13 +7,12 @@ import { Agent } from '../interfaces/Agent';
   providedIn: 'root',
 })
 export class ValorantAgentsService {
+  private readonly url: string = 'https://valorant-api.com/v1/';
   constructor(private readonly http: HttpClient) {}
 
   getAgents(): Observable<Agent[]> {
     return this.http
-      .get<{ status: number; data: Agent[] }>(
-        `https://valorant-api.com/v1/agents`
-      )
+      .get<{ status: number; data: Agent[] }>(`${this.url}agents`)
       .pipe(
         map((res) =>
           (res.status === 200 ? res.data : []).filter(
@@ -23,5 +22,9 @@ export class ValorantAgentsService {
       );
   }
 
-  getAgentsById() {}
+  getAgentsById(id: string): Observable<Agent | null> {
+    return this.http
+      .get<{ status: number; data: Agent }>(`${this.url}agents/${id}`)
+      .pipe(map((res) => (res.status === 200 ? res.data : null)));
+  }
 }
