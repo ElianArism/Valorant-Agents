@@ -1,3 +1,5 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .container {
   width: 100%;
   display: flex;
@@ -38,6 +40,7 @@
     font-family: "Valorant", "Open Sans", sans-serif;
     text-shadow: 1px 1px 5px #333;
   }
+
   & input {
     margin: 1rem 0;
     font-size: 18px;
@@ -48,9 +51,15 @@
     border-bottom: 1px solid #f3f3f3;
     outline: none;
   }
+
   & input,
   & input::placeholder {
     color: #f3f3f3;
+  }
+
+  @media screen and (max-width: $md) {
+    min-width: auto;
+    width: 100%;
   }
 }
 
@@ -61,7 +70,14 @@
   & .agents-list {
     display: grid;
     margin: auto;
+    justify-content: center;
     grid-template-columns: 30% 30% 30%;
+
+    @media screen and (max-width: $md) {
+      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+      gap: 10px;
+    }
   }
 }
 
@@ -78,5 +94,12 @@
 
   & small a {
     color: #f3f3f3;
+  }
+
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    & small {
+      margin: 10px 0;
+    }
   }
 }

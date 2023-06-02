@@ -1,3 +1,5 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .container {
   width: 100%;
   height: 100vh;
@@ -11,6 +13,10 @@
   animation: animatedBG 60s ease infinite;
   color: #f3f3f3;
   background-size: 500% 500% !important;
+
+  @media screen and (max-width: $md) {
+    height: auto;
+  }
 }
 
 .agent-container {
@@ -20,7 +26,9 @@
   opacity: 0;
   transition: opacity 500ms;
 
-  @media screen {
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    width: 90%;
   }
 }
 
@@ -45,6 +53,9 @@
   & .agent-background {
     width: 150%;
     height: 150%;
+    @media screen and (max-width: $md) {
+      opacity: 0;
+    }
   }
 
   & .agent-portrait {
@@ -55,6 +66,12 @@
     z-index: 10;
     animation: fadeIn 500ms 500ms ease-in forwards;
     filter: drop-shadow(0px 0px 10px black);
+  }
+
+  @media screen and (max-width: $md) {
+    width: 100%;
+    margin: 1rem 0;
+    order: 2;
   }
 }
 
@@ -104,5 +121,12 @@
     &::-webkit-scrollbar-thumb:hover {
       background: #f3f3f3;
     }
+  }
+
+  @media screen and (max-width: $md) {
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
   }
 }

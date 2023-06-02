@@ -1,3 +1,5 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .agent-card {
   display: flex;
   justify-content: center;
@@ -14,6 +16,10 @@
     object-fit: cover;
     display: flex;
   }
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
 }
 
 .agent-description-container {
@@ -21,6 +27,29 @@
   flex-direction: column;
   justify-content: space-around;
   height: 200px;
+
+  @media screen and (max-width: $md) {
+    & hr {
+      display: none;
+    }
+  }
+}
+
+.agent-name-and-icon {
+  & img {
+    display: none;
+  }
+
+  @media screen and (max-width: $md) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    & img {
+      display: block;
+    }
+  }
 }
 
 .agent-details-btn {

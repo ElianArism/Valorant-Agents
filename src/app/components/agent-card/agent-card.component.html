@@ -6,9 +6,18 @@
       alt="Agent portrait"
     />
   </div>
+
   <div class="agent-description-container">
     <div>
-      <strong>{{ agent.displayName }}</strong>
+      <div class="agent-name-and-icon">
+        <strong>{{ agent.displayName }}</strong>
+        <img
+          [src]="agent.displayIcon"
+          width="30"
+          height="30"
+          alt="Agent icon"
+        />
+      </div>
       <hr />
       <p>{{ agentDescriptionComputed() }}</p>
     </div>
