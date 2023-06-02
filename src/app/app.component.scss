@@ -1,3 +1,5 @@
+@import "../assets/styles/breakpoints.scss";
+
 .main-container {
   width: 100%;
   -webkit-animation: animatedBG 30s ease infinite;
@@ -10,4 +12,23 @@
   background-size: 400% 400%;
   color: #f3f3f3;
   min-height: 100vh;
+}
+
+.footer {
+  padding: 1.5rem 0px 1rem 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+
+  & small a {
+    color: #f3f3f3;
+  }
+
+  @media screen and (max-width: $xl) {
+    flex-direction: column;
+    & small {
+      margin: 10px 0;
+    }
+  }
 }

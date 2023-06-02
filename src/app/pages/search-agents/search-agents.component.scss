@@ -2,6 +2,7 @@
 
 .container {
   width: 100%;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
 }
@@ -66,25 +67,6 @@
 
 .show-agents-list {
   animation: fadeIn ease 300ms forwards;
-}
-
-.footer {
-  padding: 1.5rem 0px 1rem 0px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  user-select: none;
-
-  & small a {
-    color: #f3f3f3;
-  }
-
-  @media screen and (max-width: $xl) {
-    flex-direction: column;
-    & small {
-      margin: 10px 0;
-    }
-  }
 }
 
 .agent-not-found-msg {
