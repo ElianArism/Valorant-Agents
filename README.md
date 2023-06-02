@@ -20,5 +20,4 @@ I didn't implement lazy loading in the app routes because the proyect has just a
 - scss
 
 ## API used
-
-- [Link](https://valorant-api.com/ "Valorant API")
+[Link](https://valorant-api.com/ "Valorant API")
