@@ -8,15 +8,19 @@
     />
   </div>
 
-  <section
-    class="agents-list-container"
-    [class.show-agents-list]="agentAssetsLoaded()"
-  >
-    <ul class="agents-list">
+  <section class="agents-list-container">
+    <ul class="agents-list" [class.show-agents-list]="agentAssetsLoaded()">
       <ng-container *ngFor="let agent of agents()">
         <app-agent-card [agent]="agent" />
       </ng-container>
     </ul>
+    <app-loading *ngIf="!agents().length && !agentAssetsLoaded()" />
+    <p
+      class="agent-not-found-msg"
+      *ngIf="!agents().length && agentAssetsLoaded()"
+    >
+      Agent not found.
+    </p>
   </section>
 
   <footer class="footer">

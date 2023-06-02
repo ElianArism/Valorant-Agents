@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { Agent } from '../interfaces/Agent';
 
 @Injectable({
@@ -12,19 +12,18 @@ export class ValorantAgentsService {
 
   getAgents(): Observable<Agent[]> {
     return this.http
-      .get<{ status: number; data: Agent[] }>(`${this.url}agents`)
-      .pipe(
-        map((res) =>
-          (res.status === 200 ? res.data : []).filter(
-            (agents) => agents.isPlayableCharacter
-          )
-        )
-      );
+      .get<{ status: number; data: Agent[] }>(
+        `${this.url}agents?isPlayableCharacter=true`
+      )
+      .pipe(map((res) => (res.status === 200 ? res.data : [])));
   }
 
   getAgentsById(id: string): Observable<Agent | null> {
     return this.http
       .get<{ status: number; data: Agent }>(`${this.url}agents/${id}`)
-      .pipe(map((res) => (res.status === 200 ? res.data : null)));
+      .pipe(
+        map((res) => (res.status === 200 ? res.data : null)),
+        catchError((err) => of(null))
+      );
   }
 }

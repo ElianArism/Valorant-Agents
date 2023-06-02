@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 
-@Directive({ selector: 'img[loaded]' })
+@Directive({ selector: 'img[loaded]', standalone: true })
 export class PreloadImgDirective {
   @Output() loaded = new EventEmitter();
 

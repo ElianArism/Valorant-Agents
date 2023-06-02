@@ -3,22 +3,26 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AgentAbilityDetailsComponent } from './components/agent-ability-details/agent-ability-details.component';
-import { AgentCardComponent } from './components/agent-card/agent-card.component';
+import { ComponentsModule } from './components/components.module';
 import { PreloadImgDirective } from './directives/preload-img.directive';
 import { AgentDetailsComponent } from './pages/agent-details/agent-details.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SearchAgentsComponent } from './pages/search-agents/search-agents.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AgentAbilityDetailsComponent,
     SearchAgentsComponent,
-    PreloadImgDirective,
-    AgentCardComponent,
     AgentDetailsComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    PreloadImgDirective,
+    ComponentsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

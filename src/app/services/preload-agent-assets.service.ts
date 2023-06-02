@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PreloadAgentAssetsService {
-  private readonly allAssetsLoaded = new Subject<boolean>();
+  private readonly allAssetsLoaded = new ReplaySubject<boolean>(1);
   private assetsToPreload: number = 0;
 
   constructor() {}
@@ -22,7 +22,6 @@ export class PreloadAgentAssetsService {
     this.assetsToPreload -= 1;
     if (!this.assetsToPreload) {
       this.allAssetsLoaded.next(true);
-      this.allAssetsLoaded.complete();
     }
   }
 }

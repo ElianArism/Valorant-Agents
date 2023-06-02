@@ -4,20 +4,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  -webkit-animation: animatedBG 30s ease infinite;
-  -moz-animation: animatedBG 30s ease infinite;
-  -o-animation: animatedBG 30s ease infinite;
-  animation: animatedBG 30s ease infinite;
-  background: #1d4350; /* fallback for old browsers */
-  background: linear-gradient(to right, #a43931, #1d4350);
-  background: -webkit-linear-gradient(
-    to right,
-    #a43931,
-    #1d4350
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background-size: 400% 400%;
-  color: #f3f3f3;
-  min-height: 100vh;
 }
 
 .agents-list-container {
@@ -57,7 +43,7 @@
     color: #f3f3f3;
   }
 
-  @media screen and (max-width: $md) {
+  @media screen and (max-width: $xl) {
     min-width: auto;
     width: 100%;
   }
@@ -65,15 +51,12 @@
 
 .agents-list-container {
   width: 100%;
-  opacity: 0;
 
   & .agents-list {
+    opacity: 0;
     display: grid;
-    margin: auto;
-    justify-content: center;
     grid-template-columns: 30% 30% 30%;
-
-    @media screen and (max-width: $md) {
+    @media screen and (max-width: $xl) {
       grid-template-columns: 1fr 1fr;
       padding: 10px;
       gap: 10px;
@@ -96,10 +79,17 @@
     color: #f3f3f3;
   }
 
-  @media screen and (max-width: $md) {
+  @media screen and (max-width: $xl) {
     flex-direction: column;
     & small {
       margin: 10px 0;
     }
   }
+}
+
+.agent-not-found-msg {
+  font-family: "Valorant", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 2rem;
 }

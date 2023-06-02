@@ -8,6 +8,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Agent } from 'src/app/interfaces/Agent';
 import { ValorantAgentsService } from 'src/app/services/valorant-agents.service';
 
@@ -18,6 +19,7 @@ import { ValorantAgentsService } from 'src/app/services/valorant-agents.service'
 })
 export class AgentDetailsComponent implements OnInit {
   private readonly valorantAgentsService = inject(ValorantAgentsService);
+  private readonly router = inject(Router);
   private readonly r2 = inject(Renderer2);
 
   @ViewChild('agentDetailsContainer')
@@ -35,9 +37,11 @@ export class AgentDetailsComponent implements OnInit {
 
   private getValorantAgent(): void {
     this.valorantAgentsService.getAgentsById(this.id).subscribe((agent) => {
-      if (!agent) return;
+      if (!agent) {
+        this.router.navigateByUrl('/not-found');
+        return;
+      }
       this.agent.set(agent);
-      console.log(this.agent());
       this.setGradientBg();
     });
   }
@@ -58,6 +62,5 @@ export class AgentDetailsComponent implements OnInit {
 
   imgLoaded(): void {
     this.loadedImgsCounter.set(this.loadedImgsCounter() + 1);
-    console.log(this.loadedImgsCounter());
   }
 }
