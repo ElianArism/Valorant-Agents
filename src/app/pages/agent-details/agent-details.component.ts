@@ -27,6 +27,7 @@ export class AgentDetailsComponent implements OnInit {
   private readonly id!: string;
 
   agent = signal<Agent | null>(null);
+  loadedImgsCounter = signal<number>(0);
 
   ngOnInit(): void {
     this.getValorantAgent();
@@ -36,6 +37,7 @@ export class AgentDetailsComponent implements OnInit {
     this.valorantAgentsService.getAgentsById(this.id).subscribe((agent) => {
       if (!agent) return;
       this.agent.set(agent);
+      console.log(this.agent());
       this.setGradientBg();
     });
   }
@@ -52,5 +54,10 @@ export class AgentDetailsComponent implements OnInit {
       'background',
       `-webkit-linear-gradient(to right, #${g1}, #${g2}, #${g3},#${g4}) 500% 500%`
     );
+  }
+
+  imgLoaded(): void {
+    this.loadedImgsCounter.set(this.loadedImgsCounter() + 1);
+    console.log(this.loadedImgsCounter());
   }
 }

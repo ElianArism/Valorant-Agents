@@ -56,14 +56,27 @@
 
 .agents-list-container {
   width: 100%;
+  opacity: 0;
+
   & .agents-list {
     display: grid;
     margin: auto;
     grid-template-columns: 30% 30% 30%;
-    // grid-auto-rows: 350px;
   }
 }
 
+.show-agents-list {
+  animation: fadeIn ease 300ms forwards;
+}
+
 .footer {
-  padding: 1rem;
+  padding: 1.5rem 0px 1rem 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+
+  & small a {
+    color: #f3f3f3;
+  }
 }

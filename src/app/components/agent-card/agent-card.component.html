@@ -1,6 +1,10 @@
 <li class="agent-card">
   <div class="agent-card-img-container">
-    <img [src]="agent.fullPortrait" alt="" />
+    <img
+      [src]="agent.fullPortrait"
+      (loaded)="agentPortraitLoaded()"
+      alt="Agent portrait"
+    />
   </div>
   <div class="agent-description-container">
     <div>

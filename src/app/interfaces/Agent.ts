@@ -18,7 +18,7 @@ export interface Agent {
   isAvailableForTest: boolean;
   isBaseContent: boolean;
   role: Role;
-  abilities: Ability[];
+  abilities: AgentAbility[];
   voiceLine: VoiceLine;
 }
 
@@ -34,7 +34,7 @@ interface MediaList {
   wave: string;
 }
 
-interface Ability {
+export interface AgentAbility {
   slot: string;
   displayName: string;
   description: string;

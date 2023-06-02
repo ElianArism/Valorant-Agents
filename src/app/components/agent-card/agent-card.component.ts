@@ -2,19 +2,24 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   Renderer2,
   ViewChild,
   computed,
+  inject,
 } from '@angular/core';
 import { Agent } from 'src/app/interfaces/Agent';
+import { PreloadAgentAssetsService } from 'src/app/services/preload-agent-assets.service';
 
 @Component({
   selector: 'app-agent-card',
   templateUrl: './agent-card.component.html',
   styleUrls: ['./agent-card.component.scss'],
 })
-export class AgentCardComponent implements OnInit {
+export class AgentCardComponent {
+  private readonly preloadAgentAssetsService = inject(
+    PreloadAgentAssetsService
+  );
+
   @ViewChild('detailsBtn')
   detailsBtn!: ElementRef<HTMLSpanElement>;
 
@@ -27,15 +32,15 @@ export class AgentCardComponent implements OnInit {
 
   constructor(private readonly r2: Renderer2) {}
 
-  ngOnInit(): void {
-    console.log(this.agent);
-  }
-
   addDetailsBtnStyles(eventName: 'enter' | 'leave'): void {
     const color =
       eventName === 'enter'
         ? '#' + this.agent.backgroundGradientColors[0]
         : 'inherit';
     this.r2.setStyle(this.detailsBtn.nativeElement, 'color', color);
+  }
+
+  agentPortraitLoaded(): void {
+    this.preloadAgentAssetsService.assetLoaded();
   }
 }

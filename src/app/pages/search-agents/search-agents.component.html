@@ -8,7 +8,10 @@
     />
   </div>
 
-  <section class="agents-list-container">
+  <section
+    class="agents-list-container"
+    [class.show-agents-list]="agentAssetsLoaded()"
+  >
     <ul class="agents-list">
       <ng-container *ngFor="let agent of agents()">
         <app-agent-card [agent]="agent" />
@@ -16,5 +19,22 @@
     </ul>
   </section>
 
-  <footer class="footer">&copy; Elian Arismendi</footer>
+  <footer class="footer">
+    <small>
+      Powered by
+      <a href="https://valorant-api.com/" target="_blank"
+        >Valorant API</a
+      ></small
+    >
+    <small>
+      Made by
+      <a href="https://github.com/ElianArism" target="_blank"
+        >Elian Arismendi</a
+      >
+    </small>
+    <small>
+      All rights reserved to
+      <a href="https://playvalorant.com/" target="_blank">Riot Games</a></small
+    >
+  </footer>
 </main>

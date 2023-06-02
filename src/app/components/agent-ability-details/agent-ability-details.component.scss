@@ -1,0 +1,25 @@
+.ability-container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 10px 0;
+
+  & .ability-icon {
+    width: 80px;
+  }
+
+  & .ability-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+
+    & .ability-name {
+      letter-spacing: 1px;
+      font-weight: bold;
+      text-decoration: 1px solid underline;
+      user-select: none;
+    }
+  }
+}
