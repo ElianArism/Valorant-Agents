@@ -41,7 +41,6 @@ export class AgentCardComponent {
   }
 
   agentPortraitLoaded(): void {
-    console.log('object');
     this.preloadAgentAssetsService.assetLoaded();
   }
 }
