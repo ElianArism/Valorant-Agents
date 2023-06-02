@@ -1,1 +1,39 @@
-<p>agent-details works!</p>
+<section class="container" #agentDetailsContainer>
+  <article
+    class="agent-container"
+    [class.show-content]="this.loadedImgsCounter() == 2"
+  >
+    <div class="agent-profile-img-container">
+      <img
+        (loaded)="imgLoaded()"
+        [src]="agent()?.background"
+        alt="Agent BG"
+        class="agent-background"
+      />
+      <img
+        (loaded)="imgLoaded()"
+        [src]="agent()?.fullPortrait"
+        alt="Agent image"
+        class="agent-portrait"
+      />
+    </div>
+
+    <div class="agent-details">
+      <div class="agent-profile-description">
+        <strong class="agent-name">{{ agent()?.displayName }}</strong>
+        <hr class="separator" />
+        <p class="agent-description">{{ agent()?.description }}</p>
+      </div>
+      <h3>Abilities</h3>
+      <hr class="agent-abilities-separator" />
+      <div class="agent-abilities">
+        <ul>
+          <ng-container *ngFor="let ability of agent()?.abilities">
+            <app-agent-ability-details [ability]="ability" />
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <app-loading *ngIf="this.loadedImgsCounter() !== 2" />
+</section>

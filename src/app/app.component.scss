@@ -1,0 +1,13 @@
+.main-container {
+  width: 100%;
+  -webkit-animation: animatedBG 30s ease infinite;
+  -moz-animation: animatedBG 30s ease infinite;
+  -o-animation: animatedBG 30s ease infinite;
+  animation: animatedBG 30s ease infinite;
+  background: #1d4350;
+  background: linear-gradient(to right, #a43931, #1d4350);
+  background: -webkit-linear-gradient(to right, #a43931, #1d4350);
+  background-size: 400% 400%;
+  color: #f3f3f3;
+  min-height: 100vh;
+}

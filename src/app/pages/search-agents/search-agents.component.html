@@ -1,16 +1,44 @@
 <main class="container">
   <div class="search-agents-container">
     <h1 class="main-title">Valorant Agents</h1>
-    <input type="text" placeholder="search agents by name" />
+    <input
+      type="text"
+      placeholder="search agents by name"
+      (keyup)="filterAgents($event)"
+    />
   </div>
 
   <section class="agents-list-container">
-    <ul class="agents-list">
+    <ul class="agents-list" [class.show-agents-list]="agentAssetsLoaded()">
       <ng-container *ngFor="let agent of agents()">
         <app-agent-card [agent]="agent" />
       </ng-container>
     </ul>
+    <app-loading *ngIf="!agents().length && !agentAssetsLoaded()" />
+    <p
+      class="agent-not-found-msg"
+      *ngIf="!agents().length && agentAssetsLoaded()"
+    >
+      Agent not found.
+    </p>
   </section>
 
-  <footer class="footer">&copy; Elian Arismendi</footer>
+  <footer class="footer">
+    <small>
+      Powered by
+      <a href="https://valorant-api.com/" target="_blank"
+        >Valorant API</a
+      ></small
+    >
+    <small>
+      Made by
+      <a href="https://github.com/ElianArism" target="_blank"
+        >Elian Arismendi</a
+      >
+    </small>
+    <small>
+      All rights reserved to
+      <a href="https://playvalorant.com/" target="_blank">Riot Games</a></small
+    >
+  </footer>
 </main>

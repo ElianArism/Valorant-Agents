@@ -1,12 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-@font-face {
-  font-family: "Valorant";
-  src: url("./assets/fonts/valorantFont.ttf") format("embedded-opentype"),
-    url("./assets/fonts/valorantFont.ttf") format("woff2"),
-    url("./assets/fonts/valorantFont.ttf") format("woff"),
-    url("./assets/fonts/valorantFont.ttf") format("truetype"),
-    url("./assets/fonts/valorantFont.ttf") format("svg");
-}
+@import "./assets/styles/animations.scss";
+@import "./assets/styles/valorant-font.scss";
 
 * {
   box-sizing: border-box;

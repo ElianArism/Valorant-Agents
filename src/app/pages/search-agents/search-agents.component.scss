@@ -1,20 +1,9 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  -webkit-animation: animatedBG 30s ease infinite;
-  -moz-animation: animatedBG 30s ease infinite;
-  -o-animation: animatedBG 30s ease infinite;
-  animation: animatedBG 30s ease infinite;
-  background: #1d4350; /* fallback for old browsers */
-  background: linear-gradient(to right, #a43931, #1d4350);
-  background: -webkit-linear-gradient(
-    to right,
-    #a43931,
-    #1d4350
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background-size: 400% 400%;
-  color: #f3f3f3;
 }
 
 .agents-list-container {
@@ -37,6 +26,7 @@
     font-family: "Valorant", "Open Sans", sans-serif;
     text-shadow: 1px 1px 5px #333;
   }
+
   & input {
     margin: 1rem 0;
     font-size: 18px;
@@ -47,67 +37,59 @@
     border-bottom: 1px solid #f3f3f3;
     outline: none;
   }
+
   & input,
   & input::placeholder {
     color: #f3f3f3;
+  }
+
+  @media screen and (max-width: $xl) {
+    min-width: auto;
+    width: 100%;
   }
 }
 
 .agents-list-container {
   width: 100%;
+
   & .agents-list {
+    opacity: 0;
     display: grid;
-    margin: auto;
     grid-template-columns: 30% 30% 30%;
-    // grid-auto-rows: 350px;
+    @media screen and (max-width: $xl) {
+      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+      gap: 10px;
+    }
   }
+}
+
+.show-agents-list {
+  animation: fadeIn ease 300ms forwards;
 }
 
 .footer {
-  padding: 1rem;
+  padding: 1.5rem 0px 1rem 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+
+  & small a {
+    color: #f3f3f3;
+  }
+
+  @media screen and (max-width: $xl) {
+    flex-direction: column;
+    & small {
+      margin: 10px 0;
+    }
+  }
 }
 
-@-webkit-keyframes animatedBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes animatedBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-o-keyframes animatedBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes animatedBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.agent-not-found-msg {
+  font-family: "Valorant", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 2rem;
 }

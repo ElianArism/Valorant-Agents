@@ -1,0 +1,132 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.container {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: #18344cff; /* fallback for old browsers */
+  -webkit-animation: animatedBG 60s ease infinite;
+  -moz-animation: animatedBG 60s ease infinite;
+  -o-animation: animatedBG 60s ease infinite;
+  animation: animatedBG 60s ease infinite;
+  color: #f3f3f3;
+  background-size: 500% 500% !important;
+
+  @media screen and (max-width: $md) {
+    height: auto;
+  }
+}
+
+.agent-container {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  opacity: 0;
+  transition: opacity 500ms;
+
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+
+.show-content {
+  opacity: 1;
+}
+
+.agent-profile-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+  position: relative;
+  overflow: hidden;
+
+  & .agent-background,
+  & .agent-portrait {
+    object-fit: cover;
+  }
+
+  & .agent-background {
+    width: 150%;
+    height: 150%;
+    @media screen and (max-width: $md) {
+      opacity: 0;
+    }
+  }
+
+  & .agent-portrait {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    animation: fadeIn 500ms 500ms ease-in forwards;
+    filter: drop-shadow(0px 0px 10px black);
+  }
+
+  @media screen and (max-width: $md) {
+    width: 100%;
+    margin: 1rem 0;
+    order: 2;
+  }
+}
+
+.agent-details {
+  backdrop-filter: brightness(0.95);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 60%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .agent-profile-description {
+    margin-bottom: 1rem;
+    & .agent-name {
+      margin: 0;
+      font-family: "Valorant", sans-serif;
+      font-size: 2rem;
+    }
+
+    & .separator {
+      margin: 6px 0px 8px 0px;
+    }
+
+    & .agent-description {
+      font-size: 1rem;
+    }
+  }
+
+  & .agent-abilities-separator {
+    margin-bottom: 2px;
+  }
+
+  & .agent-abilities {
+    overflow-y: auto;
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #f3f3f37e;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #f3f3f3;
+    }
+  }
+
+  @media screen and (max-width: $md) {
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+  }
+}

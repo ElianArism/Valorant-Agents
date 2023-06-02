@@ -1,0 +1,50 @@
+@import "../../../assets/styles/animations.scss";
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  & .guns-container {
+    & img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    & .gun-1 {
+      filter: brightness(0) drop-shadow(0px 0px 5px rgb(255, 255, 255));
+      transform: rotate(-35deg) scaleX(-1);
+    }
+
+    & .gun-2 {
+      filter: brightness(0) drop-shadow(0px 0px 5px rgb(255, 255, 255));
+      transform: rotate(35deg);
+    }
+  }
+
+  & span {
+    color: #f3f3f3;
+    margin: 1rem 0;
+    font-family: "Valorant", Arial, Helvetica, sans-serif;
+  }
+
+  & .go-back-btn {
+    padding: 10px;
+    font-family: "Valorant", Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 10px;
+    color: #f3f3f3;
+    background-color: #333;
+    cursor: pointer;
+  }
+}
